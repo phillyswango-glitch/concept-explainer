@@ -1,0 +1,72 @@
+/* =============================================================
+   app.css — Feuille de style globale + design tokens
+   -------------------------------------------------------------
+   En Tailwind v4, la config se fait directement en CSS via @theme.
+   Les valeurs définies ici deviennent disponibles en classes
+   utilitaires (ex: "bg-hf-yellow", "text-ink-700", "font-display").
+   ============================================================= */
+
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* KaTeX pour le rendu des équations mathématiques. */
+@import 'katex/dist/katex.min.css';
+
+/* -------------------------------------------------------------
+   DESIGN TOKENS — inspirés de la DA Hugging Face
+   ------------------------------------------------------------- */
+@theme {
+	/* Palette principale : jaune HF chaleureux + neutres dosés */
+	--color-hf-yellow: #ffd21e;
+	--color-hf-amber: #ff9d00;
+	--color-hf-cream: #fff9e6;
+
+	/* Encres (texte) — échelle de gris chaude */
+	--color-ink-900: #1a1a1a;
+	--color-ink-700: #3d3d3d;
+	--color-ink-500: #6b6b6b;
+	--color-ink-300: #bfbfbf;
+	--color-ink-100: #e8e8e8;
+	--color-ink-50: #f5f5f5;
+
+	/* Couleurs sémantiques des 6 niveaux de Bloom —
+	   chaque niveau a sa teinte pour créer un repère visuel constant.
+	   (Principe Signaling de Mayer : on signale par la couleur ET par l'emoji.) */
+	--color-bloom-remember: #fde68a; /* 🎴 jaune pâle */
+	--color-bloom-understand: #bfdbfe; /* 🌍 bleu clair */
+	--color-bloom-apply: #bbf7d0; /* 🎮 vert menthe */
+	--color-bloom-analyze: #fbcfe8; /* 🔍 rose */
+	--color-bloom-evaluate: #ddd6fe; /* ⚖️ lavande */
+	--color-bloom-create: #fed7aa; /* 🏗️ pêche */
+
+	/* Typographie */
+	--font-sans:
+		'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+	--font-mono: 'JetBrains Mono', ui-monospace, 'SF Mono', Consolas, monospace;
+}
+
+/* -------------------------------------------------------------
+   STYLES DE BASE
+   ------------------------------------------------------------- */
+html {
+	/* Navigation douce quand on clique sur un lien d'ancre —
+	   renforce la perception de "segments" (principe Segmenting). */
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: var(--font-sans);
+	color: var(--color-ink-900);
+	background: #fafaf7;
+	font-feature-settings: 'cv11', 'ss01'; /* ligatures Inter */
+	-webkit-font-smoothing: antialiased;
+}
+
+/* Focus accessible — obligatoire pour la navigation clavier.
+   Jaune HF pour rester cohérent avec la palette. */
+:focus-visible {
+	outline: 3px solid var(--color-hf-amber);
+	outline-offset: 2px;
+	border-radius: 4px;
+}
