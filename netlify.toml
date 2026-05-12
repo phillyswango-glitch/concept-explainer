@@ -1,0 +1,26 @@
+# Config Netlify pour SvelteKit + adapter-static en mode SPA.
+# Référence : https://docs.netlify.com/configure-builds/file-based-configuration/
+
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Fallback SPA : toute URL inconnue tombe sur index.html, le routeur Svelte
+# côté client prend ensuite le relais. Sans ça, ouvrir /langgraph directement
+# renvoie un 404 (Netlify cherche /langgraph.html qui n'existe pas).
+# Le status 200 (et pas 301) est crucial — sinon l'URL changerait.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# En-têtes de sécurité de base (bonus, mais bonne pratique).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
