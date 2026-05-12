@@ -80,4 +80,34 @@
 			{/if}
 		{/each}
 	</section>
+
+	<!-- Bannière synthèse projet — montre comment les briques s'assemblent -->
+	<section class="mx-auto mt-16 max-w-5xl">
+		<a
+			href="/projet-souverain"
+			class="block overflow-hidden rounded-2xl bg-gradient-to-br from-indigo-950 via-indigo-900 to-slate-900 p-8 text-white shadow-lg transition-all hover:-translate-y-0.5 hover:shadow-2xl md:p-10"
+		>
+			<div class="flex flex-col gap-6 md:flex-row md:items-center md:gap-8">
+				<div class="text-6xl" aria-hidden="true">🛰️</div>
+				<div class="flex-1">
+					<p class="font-mono text-xs uppercase tracking-widest text-amber-300">
+						Synthèse · Architecture · Cas concrets
+					</p>
+					<h2 class="font-display mt-2 text-2xl font-bold md:text-3xl">
+						Et maintenant, comment on assemble tout ça en projet réel ?
+					</h2>
+					<p class="mt-3 max-w-2xl text-base leading-relaxed text-slate-200">
+						Regard critique sur les 11 technos vues, stack proposée pour
+						un contexte <strong class="text-amber-200">Défense + Cyber + air-gap</strong>,
+						architecture complète et 3 cas d'usage concrets (agent
+						documentaire, triage SOC, rédaction CR multi-agent) — avec
+						roadmap d'implémentation en 3 sprints.
+					</p>
+					<div class="mt-5 inline-flex items-center gap-2 rounded-full bg-amber-400 px-5 py-2 font-mono text-sm font-semibold text-slate-900">
+						Découvrir le projet COAS →
+					</div>
+				</div>
+			</div>
+		</a>
+	</section>
 </div>
